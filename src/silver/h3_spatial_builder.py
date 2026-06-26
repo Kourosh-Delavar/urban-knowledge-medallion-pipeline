@@ -27,7 +27,7 @@ def build_silver_layer():
 
     # load project configuration variables
     config = load_pipeline_config()
-    bronze_path = config['s3_paths']['bronze_deventer']
+    bronze_path = config['s3_paths']['bronze']
     h3_res = config['spatial_processing']['h3_resolution']
     catalog_name = config['iceberg']['catalog_name']
 
@@ -84,7 +84,7 @@ def build_silver_layer():
         logger.fatal(f"Silver layer execution halted: {str(e)}")
         sys.exit(1)
     finally:
-        logger.info("Terminate the Spark context")
+        logger.info("Terminate the Spark")
         spark.stop()
 
 if __name__ == "__main__":
