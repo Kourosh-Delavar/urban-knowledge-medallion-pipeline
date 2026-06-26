@@ -1,0 +1,17 @@
+aws:
+  region: "us-east-1"
+
+s3_buckets:
+  bronze: "s3://urban-data-bucket/bronze/deventer_unified_perception/" # source of dataset with parquet partitions
+  silver: "s3://urban-data-bucket/silver/"
+  gold: "s3://urban-data-bucket/gold/"
+
+iceberg:
+  catalog_name: "urban_catalog"
+  warehouse_dir:  "s3a://urban-data-bucket/silver/iceberg_warehouse/"
+
+spatial_processing:
+  h3_resolution: 8
+
+llm_enrichment:
+  embedding_model: ""
