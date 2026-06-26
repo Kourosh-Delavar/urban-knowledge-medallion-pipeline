@@ -14,4 +14,6 @@ spatial_processing:
   h3_resolution: 8
 
 llm_enrichment:
-  embedding_model: ""
+  embedding_provider: "local_huggingface"
+  embedding_model: "BAAI/bge-small-en-v1.5"
+  vector_dimension: 384
