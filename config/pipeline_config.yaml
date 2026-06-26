@@ -1,7 +1,7 @@
 aws:
   region: "us-east-1"
 
-s3_buckets:
+s3_paths:
   bronze: "s3://urban-data-bucket/bronze/deventer_unified_perception/" # source of dataset with parquet partitions
   silver: "s3://urban-data-bucket/silver/"
   gold: "s3://urban-data-bucket/gold/"
