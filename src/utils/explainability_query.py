@@ -18,7 +18,7 @@ class UrbanKnowledgeRetriever:
         load_dotenv()
 
         self.config = load_pipeline_config()
-        self.gold_path = self.config['s3_paths']['gold_layer'] + "llm_knowledge_base"
+        self.gold_path = self.config['s3_paths']['gold'] + "llm_knowledge_base"
 
         self.model_name = self.config['llm_enrichment']['embedding_model']
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
