@@ -76,7 +76,7 @@ def build_gold_layer():
 
     config = load_pipeline_config()
     catalog_name = config['iceberg']['catalog_name']
-    gold_path = config['s3_paths']['gold_layer']
+    gold_path = config['s3_paths']['gold']
 
     silver_table_identifier = f"{catalog_name}.silver.deventer_spatial"
     gold_target_path = f"{gold_path}llm_knowledge_base/"
