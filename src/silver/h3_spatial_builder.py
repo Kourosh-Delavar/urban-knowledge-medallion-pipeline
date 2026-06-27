@@ -1,6 +1,6 @@
 import sys
 from pyspark.sql import SparkSession
-from pyspark.sql.function import udf, col
+from pyspark.sql.functions import udf, col
 from pyspark.sql.types import StringType
 
 from src.utils.spark_aws_engine import create_spark_session
@@ -65,7 +65,7 @@ def build_silver_layer():
         silver_df = bronze_df.withColumn("h3_index", h3_udf(col(lat_col), col(lon_col), ))
 
         # filter out rows where spatial indexing failed (corrupted or outside bound data)
-        silver_df = silver_df.filter(col("h3_index")).isNotNull()
+        silver_df = silver_df.filter(col("h3_index").isNotNull())
 
         logger.info(f"Wrtie enriched data to Iceberg silver table target: {silver_table_identifier}")
 
