@@ -75,15 +75,8 @@ class UrbanKnowledgeRetriever:
 
 if __name__ == "__main__":
     retriever = UrbanKnowledgeRetriever()
-    
+
     retriever.search_and_explain(
         user_query="Are there safe, well-lit cycleways in the northern sector?", 
         top_k=1
     )
-
-
-
-
-
-
-
