@@ -21,7 +21,7 @@ def run_pipeline():
         silver_duration = time.time() - silver_start
         logger.info(f"[SUCCESS] Silver stage successfully processed and saved to Iceberg in duration {silver_duration:.2f} seconds.")
     except Exception as e:
-        logger.fatal("[FATAL ERROR] Silver builder failed: {str(e)}")
+        logger.fatal(f"[FATAL ERROR] Silver builder failed: {str(e)}")
         sys.exit(1)
 
     # gold stage
@@ -33,11 +33,11 @@ def run_pipeline():
         gold_duration = time.time() - gold_start
         logger.info(f"[SUCCESS] Gold stage local vector embeddings successfully synthesized in duration {gold_duration:.2f} seconds.")
     except Exception as e:
-        logger.fatal("[FATAL ERROR] Gold builder failed: {str(e)}")
+        logger.fatal(f"[FATAL ERROR] Gold builder failed: {str(e)}")
         sys.exit(1)
 
     total_duration = time.time() - start_time
-    logger.info("Total execution time: {total_duration:.2f} seconds.")
+    logger.info("fTotal execution time: {total_duration:.2f} seconds.")
 
 if __name__ == "__main__":
     run_pipeline()
