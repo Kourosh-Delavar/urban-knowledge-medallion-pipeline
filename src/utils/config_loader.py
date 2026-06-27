@@ -17,7 +17,7 @@ def load_pipeline_config() -> dict:
 
     if not config_path.exists():
         logger.error(f"Configuration file not found: {config_path}") 
-        raise FileExistsError(f"Configuration file missing at expected path: {config_path}")
+        raise FileNotFoundError(f"Configuration file missing at expected path: {config_path}")
     
     try:
         with open(config_path, "r") as file:
