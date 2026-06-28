@@ -1,3 +1,4 @@
+from typing import Optional
 import sys
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import udf, col
@@ -11,7 +12,7 @@ import h3
 
 logger = get_logger(__name__)
 
-def convert_lat_lon_to_h3(lat: float, lon: float, resolution: int) -> str:
+def convert_lat_lon_to_h3(lat: float, lon: float, resolution: int) -> Optional[str]:
 
     if lat is None or lon is None:
         return None

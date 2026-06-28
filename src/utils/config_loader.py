@@ -1,3 +1,4 @@
+from typing import Optional, Dict, Any
 import os
 import yaml
 from pathlib import Path
@@ -5,7 +6,7 @@ from src.utils.logger import get_logger
 
 logger = get_logger(__name__)
 
-def load_pipeline_config() -> dict:
+def load_pipeline_config() -> Dict[str, Any]:
 
     logger.info("Load pipeline configurations...")
 
@@ -33,7 +34,7 @@ def load_pipeline_config() -> dict:
         logger.error(f"Unexpected file error while reading configurations: {str(general_error)}")
         raise
 
-def get_env_variable(key: str, default: str = None) -> str:
+def get_env_variable(key: str, default: Optional[str] = None) -> str:
 
     value = os.getenv(key, default)
 

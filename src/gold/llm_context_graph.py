@@ -1,3 +1,4 @@
+from typing import Any
 import os
 import sys
 from pyspark.sql import SparkSession
@@ -8,6 +9,7 @@ from pyspark.sql.functions import (
     collect_list,
     pandas_udf
 )
+from pyspark.sql.types import ArrayType, FloatType
 import pandas as pd
 
 from src.utils.spark_aws_engine import create_spark_session
@@ -35,8 +37,8 @@ def get_embedding_model():
     
     return _model_cache
 
-@pandas_udf("array<float>")
-def compute_local_embeddings_udf(texts: pd.Series) -> pd.Series:
+@pandas_udf(ArrayType(FloatType()))
+def compute_local_embeddings_udf(texts: pd.Series) -> Any:
 
     import torch 
     tokenizer, model = get_embedding_model()
